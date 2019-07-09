@@ -7,7 +7,7 @@ function printTimeout(str, n) {
     }, n * 1000);
 }
 
-printTimeout('hello', 10);
+printTimeouts('hello', 10);
 
 // task #2 
 // A function which returns sum of all numbers from 1 to n using recursion.
@@ -52,7 +52,7 @@ function factorial(n) {
     if (n == 1) {
         return 1;
     } else {
-        return n * sumAll(n - 1);
+        return n * factorial(n - 1);
     }
 }
 
@@ -64,10 +64,9 @@ factorial(5);
 
 function filterNumbers(arr, maxNumber) {
 
-    function comparator (element) {
+    return arr.filter(function (element) {
         return element <= maxNumber;
-    }
-    return arr.filter(comparator);
+    });
 }
 
 filterNumbers([1, 4, 8, 1, 20], 5)
@@ -90,9 +89,9 @@ average([1, 4, 2])
 // A function which concats all first-nested arrays in one array (use reduce):
 
 function concatFirstNestedArrays(arr) {
-    let array = arr.reduce(function (acc, value) {
+    const array = arr.reduce(function (acc, value) {
         return acc.concat(value);
-    }, [] );
+    }, []);
     return array;
 }
 
