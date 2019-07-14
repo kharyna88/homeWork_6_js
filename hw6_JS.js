@@ -30,13 +30,13 @@ function bombTimer(str, time) {
     if (time == 0) {
         console.log(str);
     } else {
-        setInterval(function () {
+        let intervalId = setInterval(function () {
             if (time >= 1) {
                 console.log(time--);
             };
         }, 1000);
         setTimeout(function () {
-            clearInterval();
+            clearInterval(intervalId);
             console.log(str);
         }, (time + 1) * 1000);
 
@@ -49,7 +49,7 @@ bombTimer('Boooom', 3);
 // A function which returns factorial of number using recursion.
 
 function factorial(n) {
-    if (n == 1) {
+    if (n == 0) {
         return 1;
     } else {
         return n * factorial(n - 1);
@@ -77,9 +77,9 @@ filterNumbers([1, 4, 8, 1, 20], 5)
 
 function average(arr) {
     let total = 0;
-    arr.map(function (number) {
+    arr.forEach(function(number) {
         total += number;
-    });
+      });
     const average = total / arr.length;
     return average.toFixed(2);
 }
